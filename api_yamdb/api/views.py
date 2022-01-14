@@ -2,7 +2,6 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.core.mail import send_mail
 from django.db.models import Avg
 from django.shortcuts import get_object_or_404
-
 from django_filters.filters import CharFilter
 from django_filters.rest_framework import DjangoFilterBackend, FilterSet
 from rest_framework import filters, mixins, serializers, status, viewsets
@@ -10,6 +9,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import AccessToken
+from reviews.models import Category, Genre, Review, Title, User
+
+from api_yamdb.settings import ADMIN_EMAIL
 
 from .pagination import UserPagination
 from .permissions import (IsAdmin, IsAdminOrReadOnly,
@@ -19,8 +21,6 @@ from .serializers import (CategorySerializer, CommentSerializer,
                           GetTokenSerializer, MeSerializer, ReviewSerializer,
                           TitleReadSerializer, TitleWriteSerializer,
                           UserSerializer)
-from api_yamdb.settings import ADMIN_EMAIL
-from reviews.models import Category, Genre, Review, Title, User
 
 confirmation_token = PasswordResetTokenGenerator()
 

@@ -1,6 +1,7 @@
-from django.core.management.base import BaseCommand, CommandError
 import csv
 import os
+
+from django.core.management.base import BaseCommand, CommandError
 
 
 class SubCommand(BaseCommand):
@@ -12,8 +13,7 @@ class SubCommand(BaseCommand):
         parser.add_argument('filename', type=str, help='filename for csv file')
 
     def get_csv_file(self, filename):
-        file_path = os.path.join('data', filename)
-        return file_path
+        return os.path.join('data', filename)
 
     def clear_model(self):
         try:

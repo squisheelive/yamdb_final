@@ -1,6 +1,6 @@
 from django.core.management.base import CommandError
-
 from reviews.models import Category, Title
+
 from .add_model import SubCommand
 
 

@@ -1,4 +1,5 @@
 from reviews.models import Genre
+
 from .add_model import SubCommand
 
 
