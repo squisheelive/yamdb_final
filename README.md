@@ -1,5 +1,8 @@
 # YaMDb API Docker infrastructure
 
+![example workflow](https://github.com/squisheelive/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+
+
 #### В этом учебном проекте реализована инфраструктура [docker](https://www.docker.com/) контейнеризации API для небольшой социальной сети YaMDb.
 
 В YaMDb пользователи могут писать рецензии к различным произведениям (книги, музыка, фильмы и т.д.), а также оставлять к рецензиям комментарии. Сами произведения в YaMDb не хранятся. 
