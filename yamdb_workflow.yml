@@ -40,7 +40,7 @@ jobs:
           uses: actions/checkout@v2
         - name: go to Docker file directory
           run: |
-            cd /api_yamdb/ 
+            cd api_yamdb/ 
         - name: Set up Docker Buildx
           # Вызов сборщика контейнеров docker
           uses: docker/setup-buildx-action@v1 
