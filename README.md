@@ -1,6 +1,6 @@
 # YaMDb API Docker infrastructure
 
-![example workflow](https://github.com/squisheelive/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+![yamdb-final workflow](https://github.com/squisheelive/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 
 #### В этом учебном проекте реализована инфраструктура [docker](https://www.docker.com/) контейнеризации API для небольшой социальной сети YaMDb.
