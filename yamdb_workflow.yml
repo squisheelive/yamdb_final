@@ -58,6 +58,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: executing remote ssh commands to deploy
       # Подключение к серверу через ssh
@@ -81,7 +82,7 @@ jobs:
             # Сборка и запуск контейнера
             sudo docker-compose up -d
 
-  send_message:
+  send_message_master_branch:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
@@ -90,4 +91,16 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: ${{ github.workflow }} done!
+        message: ${{ github.workflow }} was done after push from master branch!
+
+  send_message_other_branch:
+    runs-on: ubuntu-latest
+    needs: build_and_push_to_docker_hub
+    if: github.ref != 'refs/heads/master'
+    steps:
+    - name: send message
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: ${{ github.workflow }} was done after push from ${{ github.ref }} branch!
